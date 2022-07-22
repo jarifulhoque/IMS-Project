@@ -1,5 +1,6 @@
-Coverage: 70%
-# Project Title
+Coverage: 77.7%
+
+# IMS-Project
 
 This project invlves creating an inventory management system with CRUD functionality for customers, items and orders. The user is expected to interact with the application from the command line interface (CLI).
 
