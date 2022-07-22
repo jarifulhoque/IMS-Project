@@ -81,27 +81,7 @@ class TargetClass_TEST {
 ### Integration Tests 
 
 Integration testing is a testing approach that targets the very fundamental building blocks of an application, the idea is to prove that each 'integration' of the application is functioning as expected.
-Example:
 
-class Controller {
-    protected Service myService; 
-    // Constructor etc here
-    public boolean printCustomers(){
-        return myService.printCustomers();
-    }
-}
-class Service {
-    // Constructor etc here
-    public boolean printCustomers(){
-        ArrayList<Customers> list;
-        try{
-            // for loop print list
-        }catch(Exception e){
-            return false;
-        }
-        return true;
-    }
-}
 
 ## Built With
 
