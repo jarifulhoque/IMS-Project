@@ -1,7 +1,7 @@
-Coverage: 34%
+Coverage: 70%
 # Project Title
 
-One Paragraph of project description goes here
+This project invlves creating an inventory management system with CRUD functionality for customers, items and orders. The user is expected to interact with the application from the command line interface (CLI).
 
 ## Getting Started
 
@@ -11,71 +11,125 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-Give examples
-```
+Java SE Development kit 
+https://www.oracle.com/java/technologies/downloads/
+
+MySQL Community including MySQL Workbench
+https://dev.mysql.com/downloads/windows/installer/8.0.html
+
+gitbash
+https://git-scm.com/downloads
+
+Apache Maven
+https://maven.apache.org/download.cgi
+
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get a development env running:
+Step 1- Clone the repsitory to make a local copy, using gitbash or importing into eclipse
+Step 2- Locate and edit the db.properties file so that the user and password match that of your MySQL
+Step 3- Open and run the database schema and data found from the repo
+Right click in the main "IMS-Project" folder and launch "Git Bash Here".
+Type mvn clean.
+Type mvn package.
+Close GitBash terminal.
+Move to the "target" folder.
+Right click in the folder and launch "Git Bash Here".
+Type "java -jar ims-0.0.1-jar-with-dependencies.jar". ``
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+As the Prerequisites have been complete access the testing feature through the src/test/java.
+
+Select folder with right click.
+Select "Coverage As"
+Select "JUnit test" This will run all the tests and generate a coverage table indicating how much of the code has been covered in the testing and what percentage passed/failed/errored.
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+The unit tests are designed to test the core files of the programme, as well as the most basic methods for each class. This includes the CRUD and Controller tests. The tests are run with set results expected and are only able to pass when the test return matches the expected results for each test.
+Example:
 
-```
-Give an example
-```
+//Junit example
+class TargetClass_TEST {
+    @Test
+    public void constructor_TEST(){
+        TargetClass object = new TargetClass();
+
+        // expectation, result
+        AssertTrue(object instanceof TargetClass.class);
+    }
+
+    @Test
+    public void getID_TEST(){
+        TargetClass object = new TargetClass();
+
+        // expectation, result
+        AssertEquals(0, object.id);
+    }
+
+    @Test
+    public void rtnMessage_TEST(){
+        TargetClass object = new TargetClass();
+        String result = object.rtnMessage();
+
+        // expectation, result
+        AssertEquals("Hello World", result);
+    }
+}
+
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
 
-```
-Give an example
-```
+Integration testing is a testing approach that targets the very fundamental building blocks of an application, the idea is to prove that each 'integration' of the application is functioning as expected.
+Example:
 
-### And coding style tests
+class Controller {
+    protected Service myService; 
+    // Constructor etc here
 
-Explain what these tests test and why
+    public boolean printCustomers(){
+        return myService.printCustomers();
+    }
+}
 
-```
-Give an example
-```
+class Service {
+    // Constructor etc here
+    public boolean printCustomers(){
+        ArrayList<Customers> list;
 
-## Deployment
+        try{
+            // for loop print list
+        }catch(Exception e){
+            return false;
+        }
 
-Add additional notes about how to deploy this on a live system
+        return true;
+    }
+}
 
 ## Built With
 
-* [Maven](https://maven.apache.org/) - Dependency Management
+Git - Version Control System
+GitHub - Source Code Management
+Jira - Kanban Board
+MySQLServer - Database Management System
+Java - Back-End Programming Language
+Maven - Build Tool
+JUnit - Unit Testing
+Mockito - Mock Testing
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning.
+Github for versioning.
 
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-
+* **Jariful Hoque** - *Final work* - [jarifulhoque](https://github.com/jarifulhoque)
+* 
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
@@ -84,6 +138,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thanks and appreciation to my trainers and peers for their help and guidance
