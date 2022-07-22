@@ -32,6 +32,10 @@ public class CustomerController implements CrudController<Customer> {
 	@Override
 	public List<Customer> readAll() {
 		List<Customer> customers = customerDAO.readAll();
+		if(customers.size() < 1) {
+			LOGGER.info("No customers are currently stored in the database.");
+			return customers;
+		}
 		for (Customer customer : customers) {
 			LOGGER.info(customer);
 		}
@@ -59,14 +63,16 @@ public class CustomerController implements CrudController<Customer> {
 	public Customer update() {
 		LOGGER.info("Please enter the id of the customer you would like to update");
 		Long id = utils.getLong();
+		Customer customer = customerDAO.read(id);
 		LOGGER.info("Please enter a first name");
 		String firstName = utils.getString();
 		LOGGER.info("Please enter a surname");
 		String surname = utils.getString();
-		Customer customer = customerDAO.update(new Customer(id, firstName, surname));
+		customer = customerDAO.update(new Customer(id, firstName, surname));
 		LOGGER.info("Customer Updated");
 		return customer;
 	}
+
 
 	/**
 	 * Deletes an existing customer by the id of the customer
