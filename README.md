@@ -57,7 +57,6 @@ class TargetClass_TEST {
     @Test
     public void constructor_TEST(){
         TargetClass object = new TargetClass();
-
         // expectation, result
         AssertTrue(object instanceof TargetClass.class);
     }
@@ -65,7 +64,6 @@ class TargetClass_TEST {
     @Test
     public void getID_TEST(){
         TargetClass object = new TargetClass();
-
         // expectation, result
         AssertEquals(0, object.id);
     }
@@ -74,7 +72,6 @@ class TargetClass_TEST {
     public void rtnMessage_TEST(){
         TargetClass object = new TargetClass();
         String result = object.rtnMessage();
-
         // expectation, result
         AssertEquals("Hello World", result);
     }
@@ -89,23 +86,19 @@ Example:
 class Controller {
     protected Service myService; 
     // Constructor etc here
-
     public boolean printCustomers(){
         return myService.printCustomers();
     }
 }
-
 class Service {
     // Constructor etc here
     public boolean printCustomers(){
         ArrayList<Customers> list;
-
         try{
             // for loop print list
         }catch(Exception e){
             return false;
         }
-
         return true;
     }
 }
